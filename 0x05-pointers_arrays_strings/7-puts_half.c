@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -14,22 +13,13 @@ void puts_half(char *str)
 	{
 		if (str[count] == '\0')
 			break;
-		printf("count[%d]: %c\n", count, str[count]);
 		count++;
 		
 	}
-	printf("count: %d\n", count);
-
 	if (count % 2 == 0)
-	{
 		i = count / 2;
-		printf("i: %d\n", i);
-	}
 	else
-	{
 		i = (count - 1) / 2;
-		printf("i: %d\n", i);
-	}
 	for (j = i; j < count; j++)
 		_putchar(str[j]);
 	_putchar('\n');
