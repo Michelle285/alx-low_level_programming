@@ -3,7 +3,7 @@
 void before_main(void) __attribute__((constructor));
 
 /**
- * before_main - prints a message before 
+ * before_main - prints a message before
  * main is executed
  * Return: void
  */
