@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <string.h>
 
 /**
  * add_node_end - adds a new node at the
@@ -16,32 +17,25 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (new == NULL)
 		return (NULL);
 
-	new->str = strdup(str);
-
-	if (str == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-
-
 	while (str[len])
 		len++;
 
 	new->len = len;
-	new->next = NULL;
-	temp = *head;
+	new->str = strdup(str);
 
-	if (temp == NULL)
+	if (*head == NULL)
 	{
+		new->next = *head;
 		*head = new;
 	}
 	else
 	{
-		while (temp->next != NULL)
+		new->next = NULL;
+		temp = *head;
+		while (temp->next)
 			temp = temp->next;
 		temp->next = new;
 	}
-
-	return (*head);
+	return (new);
 }
+
