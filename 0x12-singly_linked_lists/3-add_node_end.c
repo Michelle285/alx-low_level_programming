@@ -6,16 +6,22 @@
  * end of a list_t list.
  * @head: pointer to linked list.
  * @str: pointer to string
- * Return: address of the new element
+ * Return: address of the new element or NULL
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *temp;
-	size_t len;
+	size_t len = 0;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
+
+	if (str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 
 	while (str[len])
 		len++;
