@@ -16,12 +16,12 @@
  */
 void file_check(int file_in, int file_out, char *argv[])
 {
-	if (file_in < 0)
+	if (file_in == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (file_out < 0)
+	if (file_out == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
@@ -63,14 +63,14 @@ int main(int argc, char *argv[])
 	}
 
 	f_close = close(file_in);
-	if (f_close < 0)
+	if (f_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_in);
 		exit(100);
 	}
 
 	f_close = close(file_out);
-	if (f_close < 0)
+	if (f_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_in);
 		exit(100);
